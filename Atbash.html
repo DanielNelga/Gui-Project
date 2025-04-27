@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Atbash</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page2">
+    <div class="container">
+        <h1>Atbash</h1>
+        <textarea id="textInput" placeholder="Input Text"></textarea>
+        <button onclick="AtbashEncryption()">Encrypt</button>
+		<button onclick="AtbashEncryption()">Decrypt</button>
+		<br><br>
+        <textarea id="resultation" placeholder="Result goes here!"></textarea>
+		<br><br>
+        <a href="index.html" class="home">Back to home page</a>
+    </div>
+</body>
+</html>
+<script>
+
+	function AtbashEncryption(){
+			let result = "";
+			let inputElement = document.getElementById("textInput").value;
+		for(let i = 0;i < inputElement.length;i++){
+		let char = inputElement[i];
+		if(char >= 'A' && char <= 'Z') {
+		result += String.fromCharCode(155 - char.charCodeAt(0));
+		}
+		else if(char >= 'a' && char <= 'z') {
+		result += String.fromCharCode(219 - char.charCodeAt(0));
+		}
+		else{
+		result += char;
+		}
+	  }
+		document.getElementById("resultation").innerHTML = result;
+    }
+
+
+
+</script>
