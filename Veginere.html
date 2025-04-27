@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenère Cipher</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+    <body class="page3">
+    <div class="container">
+        <h1>Vigenere</h1>
+        <textarea id="text" placeholder="Input Text"></textarea>
+        <button onclick="encrypt()">Encrypt</button>
+        <button onclick="decrypt()">Decrypt</button>
+        <br><br>
+        <textarea id="key" placeholder="enter key"></textarea>
+        <br><br>
+        <h2>Output:</h2>
+        <p id="output-text"></p>
+        <a href="index.html" class="home">Back to home page</a>
+    </div>
+    </body>
+</html>
+
+
+    <script>
+        function encryptText(text, key) {
+            let result = '';
+            let keyIndex = 0;
+
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+
+                if (char.match(/[a-zA-Z]/)) {
+                    let letter = char.charCodeAt(0);
+                    let isUpperCase = letter >= 65 && letter <= 90;
+                    let offset = isUpperCase ? 65 : 97;
+
+                    let keyChar = key[keyIndex % key.length];
+                    let keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+
+                    let encryptedChar = String.fromCharCode((letter - offset + keyCode) % 26 + offset);
+                    result += encryptedChar;
+
+                    keyIndex++;
+                } else {
+                    result += char;
+                }
+            }
+
+            return result;
+        }
+
+        function decryptText(text, key) {
+            let result = '';
+            let keyIndex = 0;
+
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+
+                if (char.match(/[a-zA-Z]/)) {
+                    let letter = char.charCodeAt(0);
+                    let isUpperCase = letter >= 65 && letter <= 90;
+                    let offset = isUpperCase ? 65 : 97;
+
+                    let keyChar = key[keyIndex % key.length];
+                    let keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
+
+                    let decryptedChar = String.fromCharCode((letter - offset - keyCode + 26) % 26 + offset);
+                    result += decryptedChar;
+
+                    keyIndex++;
+                } else {
+                 
+                    result += char;
+                }
+            }
+
+            return result;
+        }
+
+        function encrypt() {
+            let text = document.getElementById("text").value;
+            let key = document.getElementById("key").value;
+            let encryptedText = encryptText(text, key);
+            document.getElementById("output-text").innerText = encryptedText;
+        }
+
+
+        function decrypt() {
+            let text = document.getElementById("text").value;
+            let key = document.getElementById("key").value;
+            let decryptedText = decryptText(text, key);
+            document.getElementById("output-text").innerText = decryptedText;
+        }
+    </script>
