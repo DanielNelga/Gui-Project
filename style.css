@@ -2,7 +2,7 @@
 					@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Do+Hyeon&family=Sigmar+One&display=swap');
 					@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');	
 					/* Here I made the 5 boxes that will allow for quick navigation between pages with a similar style of css  -DN */
-			.b1 { background-color: lawngreen; color: black; font-weight: bold;	box-shadow: 3px 3px 3px 0px grey; border-radius: 15px; font-size:x-large; padding: 1.5%; width: 150px; border: 4px solid black; }
+			.b1 { background-color: lawngreen; color: black; font-weight: bold;	box-shadow: 3px 3px 3px 0px grey; border-radius: 15px; padding: 1.5%; width: 150px; border: 4px solid black; }
 		
 			
 			.b2 { background-color: lawngreen; color: black; font-weight: bold; box-shadow: 3px 3px 3px 0px grey; border-radius: 15px; padding: 1.5%; width: 230px; border: 4px solid black} 
@@ -24,6 +24,7 @@
 				font-family: "Lilita One", sans-serif;
 				font-weight: 400;
 				font-style: normal;
+				font-size:xx-large;
 			  }
 			/* This ensures the links aren't underlined in the 5 box menu on each page ~_DN */
 			  a {
