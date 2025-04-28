@@ -1,7 +1,9 @@
+					/* Here I added the external fonts that we are going to use in our project. -DN */
 					@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Do+Hyeon&family=Sigmar+One&display=swap');
 					@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');	
+					/* Here I made the 5 boxes that will allow for quick navigation between pages with the same style of css -DN */
 			.b1 { background-color: lawngreen; color: black; font-weight: bold;	box-shadow: 3px 3px 3px 0px grey; border-radius: 15px; padding: 1.5%; width: 150px; border: 4px solid black; }
-			
+		
 			
 			.b2 { background-color: lawngreen; color: black; font-weight: bold; box-shadow: 3px 3px 3px 0px grey; border-radius: 15px; padding: 1.5%; width: 230px; border: 4px solid black} 
 			
