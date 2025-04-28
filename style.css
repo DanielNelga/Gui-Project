@@ -25,3 +25,7 @@
 				font-weight: 400;
 				font-style: normal;
 			  }
+			/* This ensures the links aren't underlined in the 5 box menu on each page ~_DN */
+			  a {
+				text-decoration: none;
+			  }
