@@ -26,36 +26,36 @@
 		</div>
 	
 
-    <div class="container"> <!-- Here I created container-->
+    <div class="container"> <!-- Here I created container class V.M.-->
         <h1>Atbash</h1>
-        <textarea id="textInput" placeholder="Input Text"></textarea>
-        <button onclick="AtbashEncryption()">Encrypt</button>
+        <textarea id="textInput" placeholder="Input Text"></textarea> <!-- Place to write your text with placeholder V.M. -->
+        <button onclick="AtbashEncryption()">Encrypt</button> <!-- Buttons to encryption and encryption V.M.-->
 		<button onclick="AtbashEncryption()">Decrypt</button>
 		<br><br>
-        <textarea id="resultation" placeholder="Result goes here!"></textarea>
+        <textarea id="resultation" placeholder="Result goes here!"></textarea> <!-- Place where you will see the end result V.M.-->
 		<br><br>
-        <a href="index.html" class="home">Back to home page</a>
+        <a href="index.html" class="home">Back to home page</a> <!-- Go back to index page -D.N -->
     </div>
 </body>
 </html>
 <script>
 
 	function AtbashEncryption(){
-			let result = "";
-			let inputElement = document.getElementById("textInput").value;
+			let result = ""; <!-- result value will hold the end result and will showcase it later V.M.-->
+			let inputElement = document.getElementById("textInput").value; <!-- gets the value to work with V.M.-->
 		for(let i = 0;i < inputElement.length;i++){
 		let char = inputElement[i];
 		if(char >= 'A' && char <= 'Z') {
-		result += String.fromCharCode(155 - char.charCodeAt(0));
+		result += String.fromCharCode(155 - char.charCodeAt(0)); <!-- 155 = A + Z check for uppercase letters only V.M.-->
 		}
 		else if(char >= 'a' && char <= 'z') {
-		result += String.fromCharCode(219 - char.charCodeAt(0));
+		result += String.fromCharCode(219 - char.charCodeAt(0)); <!-- 219 = a - z check for lowercase letters only V.M.-->
 		}
 		else{
-		result += char;
+		result += char; <!-- If neither it's returns the value as it was V.M. -->
 		}
 	  }
-		document.getElementById("resultation").innerHTML = result;
+		document.getElementById("resultation").innerHTML = result; <!-- gives the final value to result -->
     }
 
 
