@@ -108,7 +108,7 @@
 				background-color: #3498db;
 				color: white;
 				border-radius: 5px;
-				cursor: pointer;
+				/*cursor: pointer;*/
 			}
 
 			button:hover {
@@ -219,7 +219,7 @@
 			
 			
 			
-			/* Button "Back to home page" O.O. */
+			/* Button "Back to home page" O.O. 
 			.home {
 				display: inline-block;
 				margin-top: 20px;
@@ -241,4 +241,4 @@
 
 			
 				font-size: 25px;
-			}
+			} */
