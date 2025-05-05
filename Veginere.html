@@ -20,7 +20,7 @@
                     <button class="b2" align="center"><a href="Atbash.html">Atbash Cipher</a></button>
             
                     <button class="b3" align="center"><a href="Contact.html">Contact Us</a></button>
-            
+                        <!--This refreshes the page rather than re-entering it -D.N-->
                     <button class="b4" align="center"><a href="#">Vigenere Cipher</a></button>
             
                     <button class="b5" align="center"><a href="CyberSecurity.html">CyberSecurity</a></button>
@@ -29,15 +29,19 @@
        
         
 
-
+            
             <div class="container">
                 <h1>Vigenere</h1>
+                <!--This creates the first box that has an Input text written in it to let the user know where to input the message they wish to encrypt-->
                 <textarea id="text" placeholder="Input Text"></textarea>
+                <!-- Here have the text box for the key they wish to enter -D.N-->
+                <br><br>
+                <textarea id="key" placeholder="enter key"></textarea>
+                <!--The Javascript buttons with refernce to the relevant functions -D.N-->
                 <button onclick="encrypt()">Encrypt</button>
                 <button onclick="decrypt()">Decrypt</button>
                 <br><br>
-                <textarea id="key" placeholder="enter key"></textarea>
-                <br><br>
+                <!--This is where the result will be outputted -D.N-->
                 <h2>Output:</h2>
                 <p id="output-text"></p>
                
@@ -47,21 +51,31 @@
         
         
             <script>
-                function encryptText(text, key) {
+                /* Here we input and bring the 2 variables from the text boxes into the function -D.N*/
+                function encryptText(text, key) 
+                {
+                    /* This is where the output is stored -D.N*/
                     let result = '';
                     let keyIndex = 0;
         
+                    /* The for loop goes through ever letter, the text.length allows for the user to input as many letters as the want -D.N*/
                     for (let i = 0; i < text.length; i++) {
                         let char = text[i];
-        
+
+                        /*Ensures the values inputted are letters, if anything else, it will remain the same -D.N */
                         if (char.match(/[a-zA-Z]/)) {
                             let letter = char.charCodeAt(0);
+
+                            /*Determines uppercase or lowerCase */
                             let isUpperCase = letter >= 65 && letter <= 90;
                             let offset = isUpperCase ? 65 : 97;
-        
+
+                            /*Counts the Index and the key length, Then repeats if key is shorter than message -D.N */
                             let keyChar = key[keyIndex % key.length];
+                            /*Letters become A=1, B=2 etc */
                             let keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
-        
+
+                            /*Here it shifts the letter by the keyCode, divides to 26 to go back from Z and added the offset to make the new letter -D.N */ 
                             let encryptedChar = String.fromCharCode((letter - offset + keyCode) % 26 + offset);
                             result += encryptedChar;
         
@@ -73,14 +87,18 @@
         
                     return result;
                 }
-        
-                function decryptText(text, key) {
+                
+                /*The exact same as the first one */
+                function decryptText(text, key) 
+                {
+                     /* ^^^ Here we input and bring the 2 variables from the text boxes into the function -D.N*/
                     let result = '';
                     let keyIndex = 0;
         
                     for (let i = 0; i < text.length; i++) {
                         let char = text[i];
         
+                         /*Ensures the values inputted are letters, if anything else, it will remain the same -D.N */
                         if (char.match(/[a-zA-Z]/)) {
                             let letter = char.charCodeAt(0);
                             let isUpperCase = letter >= 65 && letter <= 90;
@@ -89,6 +107,7 @@
                             let keyChar = key[keyIndex % key.length];
                             let keyCode = keyChar.toUpperCase().charCodeAt(0) - 65;
         
+                            /* The plus ensures that the number remains positive -D.N*/
                             let decryptedChar = String.fromCharCode((letter - offset - keyCode + 26) % 26 + offset);
                             result += decryptedChar;
         
@@ -102,18 +121,54 @@
                     return result;
                 }
         
-                function encrypt() {
+                function encrypt() 
+                {
+                    /*Takes whats in element text*/
                     let text = document.getElementById("text").value;
+                    /*Takes whats in element key*/
                     let key = document.getElementById("key").value;
+                    /*Saves the secret message*/
                     let encryptedText = encryptText(text, key);
+                    /*Outputs new secret message */
                     document.getElementById("output-text").innerText = encryptedText;
+                    
+                    sessionStorage.setItem("text", text);
+                    sessionStorage.setItem("key", key);
+                    sessionStorage.setItem("output", encryptedText); 
+
                 }
         
         
-                function decrypt() {
+                function decrypt() 
+                {
+                    /*Takes whats in element text*/
                     let text = document.getElementById("text").value;
+                    /*Takes whats in element key*/
                     let key = document.getElementById("key").value;
                     let decryptedText = decryptText(text, key);
+                     /*Outputs new secret message */
                     document.getElementById("output-text").innerText = decryptedText;
+                    
+                    sessionStorage.setItem("text", text);
+                    sessionStorage.setItem("key", key);
+                    sessionStorage.setItem("output", encryptedText);
+
                 }
+                if (sessionStorage.getItem("text")) 
+                {
+                  document.getElementById("text").value = sessionStorage.getItem("text");
+                 }
+
+                if (sessionStorage.getItem("key")) 
+                {
+                    document.getElementById("key").value = sessionStorage.getItem("key");
+                }
+
+                if (sessionStorage.getItem("output")) 
+                {
+                    document.getElementById("output-text").innerText = sessionStorage.getItem("output");
+                }
+
     </script>
+    <h2>What is a Veginere Cipher?</h2>
+    <p>A veginere cipher is a plaintext cipher that allows a user to encrypt a message by using a key. A key can be a word or a random conbination of letters with no limit, that will convert those letters into numbers. It then takes those numbers and adds it to the message you would like to encrypt. It then divides that by subtracts that by 26 to get the new letter. This contains until the end of the key. If the key is shorter than the message itself, the key will loop until the word or message is complete.</p>
