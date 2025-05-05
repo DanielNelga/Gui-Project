@@ -50,9 +50,10 @@
 
 			p {
 				font-family: "Lilita One", sans-serif;
-				font-weight: lighter;
+				font-weight: bold;
 				font-style: normal;
 				font-size: 20px;
+				color: white;
 			}
 
 			h2 {
