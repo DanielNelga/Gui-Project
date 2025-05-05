@@ -138,14 +138,7 @@
 				font-size: 1.1rem;
 				color: #2c3e50;
 			}
-			
-			 /*Blue buttons only on class page "page3" O.O. 
-			.page3 button,
-			.page3 .back-button {
-				background-color: #007bff; 
-				border: 2px solid #007bff;
-				color: white;
-			} */
+		
 
 			.page3 button:hover,
 			.page3 .back-button:hover {
