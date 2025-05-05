@@ -47,19 +47,23 @@
 			
 			/* gets the value to work with V.M. */
 			let inputElement = document.getElementById("textInput").value; 
-		for(let i = 0;i < inputElement.length;i++){
+		for(let i = 0;i < inputElement.length;i++)
+		{
 		let char = inputElement[i];
-		if(char >= 'A' && char <= 'Z') {
+		if(char >= 'A' && char <= 'Z') 
+		{
 			
 			/* 155 = A + Z check for uppercase letters only V.M. */
 			result += String.fromCharCode(155 - char.charCodeAt(0));
 		}
-		else if(char >= 'a' && char <= 'z') {
+		else if(char >= 'a' && char <= 'z') 
+		{
 		
 		/* 219 = a - z check for lowercase letters only V.M. */
 			result += String.fromCharCode(219 - char.charCodeAt(0)); 
 		}
-		else{
+		else
+		{
 
 		//-- If neither it's returns the value as it was V.M. -->
 		result += char; 
@@ -72,11 +76,13 @@
     	sessionStorage.setItem("atbashResult", result);
     }
 
-	if (sessionStorage.getItem("atBashStorage")) {
+	if (sessionStorage.getItem("atBashStorage")) 
+	{
         document.getElementById("textInput").value = sessionStorage.getItem("atBashStorage");
     }
 
-    if (sessionStorage.getItem("atBashResult")) {
+    if (sessionStorage.getItem("atBashResult")) 
+	{
         document.getElementById("resultation").innerHTML = sessionStorage.getItem("atBashResult");
     }
 
