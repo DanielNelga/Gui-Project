@@ -41,23 +41,49 @@
 <script>
 
 	function AtbashEncryption(){
-			let result = ""; <!-- result value will hold the end result and will showcase it later V.M.-->
-			let inputElement = document.getElementById("textInput").value; <!-- gets the value to work with V.M.-->
+			
+		/* result value will hold the end result and will showcase it later V.M.*/
+		let result = ""; 
+			
+			/* gets the value to work with V.M. */
+			let inputElement = document.getElementById("textInput").value; 
 		for(let i = 0;i < inputElement.length;i++){
 		let char = inputElement[i];
 		if(char >= 'A' && char <= 'Z') {
-		result += String.fromCharCode(155 - char.charCodeAt(0)); <!-- 155 = A + Z check for uppercase letters only V.M.-->
+			
+			/* 155 = A + Z check for uppercase letters only V.M. */
+			result += String.fromCharCode(155 - char.charCodeAt(0));
 		}
 		else if(char >= 'a' && char <= 'z') {
-		result += String.fromCharCode(219 - char.charCodeAt(0)); <!-- 219 = a - z check for lowercase letters only V.M.-->
+		
+		/* 219 = a - z check for lowercase letters only V.M. */
+			result += String.fromCharCode(219 - char.charCodeAt(0)); 
 		}
 		else{
-		result += char; <!-- If neither it's returns the value as it was V.M. -->
+
+		//-- If neither it's returns the value as it was V.M. -->
+		result += char; 
 		}
 	  }
-		document.getElementById("resultation").innerHTML = result; <!-- gives the final value to result -->
+	  	/* gives the final value to result */
+		document.getElementById("resultation").innerHTML = result; 
+
+		sessionStorage.setItem("atbashInput", inputElement);
+    	sessionStorage.setItem("atbashResult", result);
+    }
+
+	if (sessionStorage.getItem("atBashStorage")) {
+        document.getElementById("textInput").value = sessionStorage.getItem("atBashStorage");
+    }
+
+    if (sessionStorage.getItem("atBashResult")) {
+        document.getElementById("resultation").innerHTML = sessionStorage.getItem("atBashResult");
     }
 
 
 
 </script>
+<!--Added by Daniel Nelga-->
+<p>The AtBash cipher is not a complex piece of work. It also if very easy to encrypt and decrypt if the person understands how it works. The Atbash cipher operates on the basis that the alphabet becomes flipped. Another words A becomes Z and B becomes Y. We added this cipher to show people the different levels of potential encryption. For business and very important information, we would not recommend using the AtBash cipher. However this code demonstrates how it works and people can have fun with the cipher.
+</p><br>
+<p>If you wish to access the words you have encrypted. Press F12 and nagivate SessionStorage.</p>
